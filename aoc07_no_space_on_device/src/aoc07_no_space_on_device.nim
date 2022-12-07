@@ -24,7 +24,6 @@ const size_limit = 100000
 var
   strm = newFileStream("input.txt", fmRead)
   line = ""
-  dir_history = newSeq[string]()
   root = Node(size: 0, name: "/", children: newSeq[Node](), parent: nil) 
   now_node = root
 
@@ -36,7 +35,6 @@ if not isNil(strm):
         if line[5..^1] == "..": 
           now_node = now_node.parent
           continue
-        dir_history.add(line[5..^1])
 
         now_node = 
           block:
